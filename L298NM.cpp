@@ -16,23 +16,23 @@ void L298NM::begin() {
 }
 
 void L298NM::forward(uint8_t speed) {
-    setMotorRight(255-speed, true);  // Motor direito para frente
-    setMotorLeft(255-speed, true);   // Motor esquerdo para frente
+    setMotorRight(speed, false);  // Motor direito para frente
+    setMotorLeft(speed, false);   // Motor esquerdo para frente
 }
 
 void L298NM::backward(uint8_t speed) {
-    setMotorRight(speed, false); // Motor direito para trás
-    setMotorLeft(speed, false);  // Motor esquerdo para trás
+    setMotorRight(255-speed, true); // Motor direito para trás
+    setMotorLeft(255-speed, true);  // Motor esquerdo para trás
 }
 
 void L298NM::turnLeft(uint8_t speed) {
-    setMotorRight(255-speed, true);  // Motor direito para frente
-    setMotorLeft(speed, false);  // Motor esquerdo para trás
+    setMotorRight(speed, false);  // Motor direito para frente
+    setMotorLeft(255-speed, true);  // Motor esquerdo para trás
 }
 
 void L298NM::turnRight(uint8_t speed) {
-    setMotorRight(speed, false); // Motor direito para trás
-    setMotorLeft(255-speed, true);   // Motor esquerdo para frente
+    setMotorRight(255-speed, true); // Motor direito para trás
+    setMotorLeft(speed, false);   // Motor esquerdo para frente
 }
 
 void L298NM::stop() {
@@ -48,11 +48,11 @@ void L298NM::setMotorSpeed(uint8_t speedRight, uint8_t speedLeft) {
 }
 
 void L298NM::setMotorRight(uint8_t speed, bool direction) {
-    analogWrite(_in2, speed);
-    digitalWrite(_in1, direction ? HIGH : LOW);
+    analogWrite(_in1, speed);
+    digitalWrite(_in2, direction ? HIGH : LOW);
 }
 
 void L298NM::setMotorLeft(uint8_t speed, bool direction) {
-    analogWrite(_in4, speed);
-    digitalWrite(_in3, direction ? HIGH : LOW);
+    analogWrite(_in3, speed);
+    digitalWrite(_in4, direction ? HIGH : LOW);
 }

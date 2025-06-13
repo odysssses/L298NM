@@ -1,7 +1,7 @@
 # Instalação
 * Primeiramente, baixe o arquivo .zip daqui do github
-* Então, no arduino IDE, vá em **Sketch > Incluir biblioteca > Adicionar biblioteca .ZIP**
-* Isso abrirá uma tela para selecionar um arquivo, vá até a pasta em que baixou essa biblioteca e clique duas vezes.
+* Extraia o arquivo e remova o "-master" do nome da pasta
+* Coloque a pasta no diretório libraries
 * Enfim, no topo do seu código, copie essa linha `#include <L298NM.h>`
 
 (Alternativamente, você pode extrair o .zip e colocar a pasta "L298NM" dentro do diretório libraries do arduino) 
